@@ -6,7 +6,7 @@ class GridPainter extends CustomPainter {
   final Color cellColor;
   final int columns;
   final int rows;
-  final List<List<int>> cells;
+  final List<List<bool>> cells;
 
   GridPainter({
     required this.backgroundColor,
@@ -28,7 +28,7 @@ class GridPainter extends CustomPainter {
   }
 
   bool _cellIsActive({required int x, required int y}) {
-    return cells.length > x && cells[x].length > y && cells[x][y] == 1;
+    return cells.length > x && cells[x].length > y && cells[x][y] == true;
   }
 
   void _drawCells(double lh, double lw, int columns, int rows, Canvas canvas) {
