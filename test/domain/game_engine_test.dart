@@ -14,7 +14,6 @@ void main() {
     engine = GameEngine();
   });
 
-  // TODO: replace this with some real tests
   test(
     'an empty grid should remain empty',
     () async {
@@ -131,61 +130,4 @@ void main() {
       verify(mockCell.shouldLive()).called(1);
     },
   );
-
-  // test(
-  //   'a dead cell with exactly three neighbors comes to life',
-  //       () async {
-  //         final List<List<bool>> input = [
-  //           [false, true, false],
-  //           [false, true, true],
-  //           [false, false, false],
-  //         ];
-  //         final result = engine.compute(input);
-  //         final List<List<bool>> expected = [
-  //           [false, true, true],
-  //           [false, true, true],
-  //           [false, false, false],
-  //         ];
-  //         expect(result, expected);
-  //
-  //         ///
-  //         ///
-  //         ///
-  //
-  //
-  //         final c = Cell(x: 1, y: 1, neighbors: 2);
-  //         expect(c.isAlive(), true);
-  //
-  //         final c = Cell(x: 1, y: 1, neighbors: 3);
-  //         expect(c.isAlive(), true);
-  //
-  //         final c = Cell(x: 1, y: 1, neighbors: 1);
-  //         expect(c.isAlive(), false);
-  //
-  //         final c = Cell(x: 1, y: 1, neighbors: 4);
-  //         expect(c.isAlive(), false);
-  //   },
-  // );
-
-  // test(
-  //   'a cell with two neighbors survives',
-  //   () async {
-  //     final List<List<bool>> input = [
-  //       [false, true, false],
-  //       [false, true, true],
-  //       [false, false, false]
-  //     ];
-  //     final result = engine.compute(input);
-  //     expect(result, input);
-  //   },
-  // );
-
-  // test(
-  //   'a cell with three neighbors survives',
-  //   () async {
-  //     // arrange
-  //     // act
-  //     // assert
-  //   },
-  // );
 }
