@@ -50,7 +50,20 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  final _gameController = GameController();
+  late bool _paused;
+  late bool _eraseMode;
+
+  final _gameController = GameController(
+    cycleDuration: const Duration(milliseconds: 150),
+  );
+
+  @override
+  void initState() {
+    _paused = _gameController.isPaused();
+    _eraseMode = _gameController.editMode() == EditMode.erase;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,21 +73,43 @@ class _GameScreenState extends State<GameScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              if (_gameController.isPaused()) {
-                _gameController.resume();
+              if (_paused) {
+                _gameController.start();
               } else {
-                _gameController.pause();
+                _gameController.stop();
               }
+              setState(() {
+                _paused = !_paused;
+              });
             },
-            icon: _gameController.isPaused()
+            icon: _paused
                 ? const Icon(Icons.play_arrow)
                 : const Icon(Icons.pause),
           ),
           IconButton(
-              onPressed: () {
-                _gameController.restart();
-              },
-              icon: const Icon(Icons.refresh)),
+            onPressed: () {
+              if (_eraseMode) {
+                _gameController.setEditMode(EditMode.add);
+              } else {
+                _gameController.setEditMode(EditMode.erase);
+              }
+              setState(() {
+                _eraseMode = !_eraseMode;
+              });
+            },
+            icon: _eraseMode
+                ? const Icon(Icons.edit)
+                : const Icon(Icons.edit_square),
+          ),
+          IconButton(
+            onPressed: () {
+              _gameController.reset();
+              setState(() {
+                _paused = true;
+              });
+            },
+            icon: const Icon(Icons.delete),
+          ),
         ],
       ),
       body: SizedBox.expand(

@@ -1,16 +1,20 @@
-# game_of_life
+# Game of Life
 
-A new Flutter project.
+A flutter implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-## Getting Started
+All of the UI has been built and the game engine stubbed out in [./lib/domain/game_engine.dart](./lib/domain/game_engine.dart), so you can use this as a starting point to practice [Test Driven Development](http://www.butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
 
-This project is a starting point for a Flutter application.
+## Usage
+The UI comes with some pre-built controls to help you play the game:
 
-A few resources to get you started if this is your first Flutter project:
+* play/pause the generation timelapse.
+* add/erase cells.
+* delete the game.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Cells can be manually changed by clicking/tapping on an are in the grid.
+This can be done while the game is running or paused.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Image](./images/demo.gif)
+
+## Get Started
+To get started, write a new test in [./test/domain/game_engine_test.dart](./test/domain/game_engine_test.dart).

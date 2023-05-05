@@ -39,7 +39,7 @@ class _GridState extends State<Grid> {
         cellColor: widget.cellColor,
         columns: widget.controller.columns,
         rows: widget.controller.rows,
-        cells: widget.controller.cells,
+        cells: widget.controller.cells(),
       ),
       child: const SizedBox(
         height: double.infinity,
