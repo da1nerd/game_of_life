@@ -27,7 +27,7 @@ void main() {
     test(
       'a living cell with two neighbors survives',
       () async {
-        final c = Cell(true, 2);
+        const c = Cell(true, 2);
         expect(c.shouldLive(), true);
       },
     );
@@ -35,7 +35,7 @@ void main() {
     test(
       'a living cell with three neighbors survives',
       () async {
-        final c = Cell(true, 3);
+        const c = Cell(true, 3);
         expect(c.shouldLive(), true);
       },
     );
@@ -45,7 +45,7 @@ void main() {
     test(
       'a living cell with no neighbors dies',
       () async {
-        final c = Cell(true, 0);
+        const c = Cell(true, 0);
         expect(c.shouldLive(), false);
       },
     );
@@ -53,7 +53,7 @@ void main() {
     test(
       'a living cell with one neighbor dies',
       () async {
-        final c = Cell(true, 1);
+        const c = Cell(true, 1);
         expect(c.shouldLive(), false);
       },
     );
@@ -61,7 +61,7 @@ void main() {
     test(
       'a living cell with four neighbors dies',
       () async {
-        final c = Cell(true, 4);
+        const c = Cell(true, 4);
         expect(c.shouldLive(), false);
       },
     );
@@ -71,7 +71,7 @@ void main() {
     test(
       'a dead cell with three neighbors is alive',
       () async {
-        final c = Cell(false, 3);
+        const c = Cell(false, 3);
         expect(c.shouldLive(), true);
       },
     );
@@ -79,7 +79,7 @@ void main() {
     test(
       'a dead cell with two neighbors remains dead',
       () async {
-        final c = Cell(false, 2);
+        const c = Cell(false, 2);
         expect(c.shouldLive(), false);
       },
     );
@@ -87,7 +87,7 @@ void main() {
     test(
       'a dead cell with four neighbors remains dead',
       () async {
-        final c = Cell(false, 4);
+        const c = Cell(false, 4);
         expect(c.shouldLive(), false);
       },
     );
@@ -102,7 +102,7 @@ void main() {
         [false, false, false],
       ];
       final result = engine.generateCells(input);
-      final expected = [
+      const expected = [
         [Cell(false, 2), Cell(true, 2), Cell(false, 3)],
         [Cell(false, 2), Cell(true, 2), Cell(true, 2)],
         [Cell(false, 1), Cell(false, 2), Cell(false, 2)],

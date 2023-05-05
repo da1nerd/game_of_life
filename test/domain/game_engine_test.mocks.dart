@@ -43,7 +43,7 @@ class MockCell extends _i1.Mock implements _i2.Cell {
   @override
   bool shouldLive() => (super.noSuchMethod(
         Invocation.method(
-          #isAlive,
+          #shouldLive,
           [],
         ),
         returnValue: false,

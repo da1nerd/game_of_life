@@ -7,7 +7,7 @@ class Cell extends Equatable {
   /// Indicates that the cell is currently alive.
   final bool alive;
 
-  Cell(this.alive, this.neighbors);
+  const Cell(this.alive, this.neighbors);
 
   /// Indicates if the cell should be alive in the next generation.
   bool shouldLive() {
